@@ -16,71 +16,156 @@ interface AIModel {
   color: string;
 }
 
+interface TokenMetrics {
+  bigFishScore: number; // 0-100
+  liquidity: number;
+  volume24h: number;
+  holderConcentration: number; // 0-100
+}
+
 interface AITradingConsensusProps {
   tokenSymbol: string;
   language: 'en' | 'id';
+  tokenMetrics: TokenMetrics;
 }
 
-export function AITradingConsensus({ tokenSymbol, language }: AITradingConsensusProps) {
+export function AITradingConsensus({ tokenSymbol, language, tokenMetrics }: AITradingConsensusProps) {
   const { isDegen } = useTheme();
 
-  // AI Models data (based on screenshot)
-  const models: AIModel[] = [
-    {
-      name: 'DEEPSEEK',
-      fullName: 'DEEPSEEK CHAT V3.1',
-      signal: 'BUY',
-      returnPercent: 42.91,
-      totalValue: 14291,
-      icon: '🔷',
-      color: '#5865F2',
-    },
-    {
-      name: 'GROK 4',
-      fullName: 'GROK 4',
-      signal: 'BUY',
-      returnPercent: 38.34,
-      totalValue: 13834,
-      icon: '⚫',
-      color: '#000000',
-    },
-    {
-      name: 'CLAUDE',
-      fullName: 'CLAUDE SONNET 4.5',
-      signal: 'HOLD',
-      returnPercent: 24.78,
-      totalValue: 12478,
-      icon: '🌟',
-      color: '#FF6B35',
-    },
-    {
-      name: 'QWEN3',
-      fullName: 'QWEN3 MAX',
-      signal: 'BUY',
-      returnPercent: 9.96,
-      totalValue: 10996,
-      icon: '💠',
-      color: '#A855F7',
-    },
-    {
-      name: 'GPT 5',
-      fullName: 'GPT 5',
-      signal: 'SELL',
-      returnPercent: -24.42,
-      totalValue: 7558,
-      icon: '🔴',
-      color: '#10B981',
-    },
-    {
-      name: 'GEMINI',
-      fullName: 'GEMINI 2.5 PRO',
-      signal: 'SELL',
-      returnPercent: -28.49,
-      totalValue: 7151,
-      icon: '💎',
-      color: '#3B82F6',
-    },
-  ];
+  /**
+   * Generate dynamic AI model signals based on actual token metrics
+   * Each AI model has different "personality" for decision-making
+   */
+  const generateAIModels = (): AIModel[] => {
+    const { bigFishScore, liquidity, volume24h, holderConcentration } = tokenMetrics;
+
+    // Base capital for all models
+    const baseCapital = 10000;
+
+    // Risk levels: 0-30 = LOW, 30-60 = MEDIUM, 60-100 = HIGH
+    const riskLevel = bigFishScore;
+
+    // Calculate model-specific signals and returns
+    // Each model uses different strategy and risk tolerance
+
+    // 1. DEEPSEEK - Aggressive trend follower (likes high risk if volume is good)
+    const deepseekSignal =
+      riskLevel < 40 && volume24h > 50000 ? 'BUY' : riskLevel > 65 ? 'SELL' : 'HOLD';
+    const deepseekReturn =
+      deepseekSignal === 'BUY'
+        ? 30 + (volume24h / 10000) * 5 + Math.random() * 15
+        : deepseekSignal === 'SELL'
+        ? -20 - (riskLevel / 10) * 3 - Math.random() * 10
+        : 10 + Math.random() * 15;
+
+    // 2. GROK 4 - Contrarian (buys dips, sells peaks)
+    const grokSignal = riskLevel > 70 ? 'SELL' : riskLevel < 35 ? 'BUY' : 'HOLD';
+    const grokReturn =
+      grokSignal === 'BUY'
+        ? 25 + (100 - holderConcentration) * 0.2 + Math.random() * 13
+        : grokSignal === 'SELL'
+        ? -15 - (riskLevel / 15) * 4 - Math.random() * 12
+        : 15 + Math.random() * 10;
+
+    // 3. CLAUDE - Conservative (avoids high risk, prefers liquidity)
+    const claudeSignal =
+      riskLevel < 30 && liquidity > 100000 ? 'BUY' : riskLevel > 50 ? 'SELL' : 'HOLD';
+    const claudeReturn =
+      claudeSignal === 'BUY'
+        ? 15 + (liquidity / 50000) * 2 + Math.random() * 10
+        : claudeSignal === 'SELL'
+        ? -10 - (riskLevel / 20) * 2 - Math.random() * 8
+        : 20 + Math.random() * 8;
+
+    // 4. QWEN3 - Fundamental analyst (focuses on holder concentration)
+    const qwen3Signal =
+      holderConcentration < 50 && riskLevel < 45 ? 'BUY' : holderConcentration > 75 ? 'SELL' : 'HOLD';
+    const qwen3Return =
+      qwen3Signal === 'BUY'
+        ? 10 + (100 - holderConcentration) * 0.3 + Math.random() * 12
+        : qwen3Signal === 'SELL'
+        ? -18 - (holderConcentration / 10) * 3 - Math.random() * 10
+        : 5 + Math.random() * 12;
+
+    // 5. GPT-5 - Pessimistic (bearish on most tokens)
+    const gpt5Signal = riskLevel < 25 && liquidity > 200000 ? 'HOLD' : riskLevel > 40 ? 'SELL' : 'HOLD';
+    const gpt5Return =
+      gpt5Signal === 'HOLD'
+        ? -5 + Math.random() * 10
+        : -20 - (riskLevel / 8) * 4 - Math.random() * 15;
+
+    // 6. GEMINI - Risk-averse (sells at first sign of danger)
+    const geminiSignal = riskLevel > 55 || holderConcentration > 70 ? 'SELL' : riskLevel < 30 ? 'BUY' : 'HOLD';
+    const geminiReturn =
+      geminiSignal === 'BUY'
+        ? 12 + (liquidity / 80000) * 2 + Math.random() * 8
+        : geminiSignal === 'SELL'
+        ? -25 - (riskLevel / 10) * 3.5 - Math.random() * 12
+        : -2 + Math.random() * 8;
+
+    // Calculate total values based on returns
+    const models: AIModel[] = [
+      {
+        name: 'DEEPSEEK',
+        fullName: 'DEEPSEEK CHAT V3.1',
+        signal: deepseekSignal as 'BUY' | 'HOLD' | 'SELL',
+        returnPercent: deepseekReturn,
+        totalValue: baseCapital * (1 + deepseekReturn / 100),
+        icon: '🔷',
+        color: '#5865F2',
+      },
+      {
+        name: 'GROK 4',
+        fullName: 'GROK 4',
+        signal: grokSignal as 'BUY' | 'HOLD' | 'SELL',
+        returnPercent: grokReturn,
+        totalValue: baseCapital * (1 + grokReturn / 100),
+        icon: '⚫',
+        color: '#000000',
+      },
+      {
+        name: 'CLAUDE',
+        fullName: 'CLAUDE SONNET 4.5',
+        signal: claudeSignal as 'BUY' | 'HOLD' | 'SELL',
+        returnPercent: claudeReturn,
+        totalValue: baseCapital * (1 + claudeReturn / 100),
+        icon: '🌟',
+        color: '#FF6B35',
+      },
+      {
+        name: 'QWEN3',
+        fullName: 'QWEN3 MAX',
+        signal: qwen3Signal as 'BUY' | 'HOLD' | 'SELL',
+        returnPercent: qwen3Return,
+        totalValue: baseCapital * (1 + qwen3Return / 100),
+        icon: '💠',
+        color: '#A855F7',
+      },
+      {
+        name: 'GPT 5',
+        fullName: 'GPT 5',
+        signal: gpt5Signal as 'BUY' | 'HOLD' | 'SELL',
+        returnPercent: gpt5Return,
+        totalValue: baseCapital * (1 + gpt5Return / 100),
+        icon: '🔴',
+        color: '#10B981',
+      },
+      {
+        name: 'GEMINI',
+        fullName: 'GEMINI 2.5 PRO',
+        signal: geminiSignal as 'BUY' | 'HOLD' | 'SELL',
+        returnPercent: geminiReturn,
+        totalValue: baseCapital * (1 + geminiReturn / 100),
+        icon: '💎',
+        color: '#3B82F6',
+      },
+    ];
+
+    // Sort by total value (highest first)
+    return models.sort((a, b) => b.totalValue - a.totalValue);
+  };
+
+  const models = generateAIModels();
 
   // Calculate consensus
   const buyCount = models.filter((m) => m.signal === 'BUY').length;

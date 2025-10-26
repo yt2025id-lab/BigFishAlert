@@ -233,6 +233,12 @@ export function TokenScanner({ language, connected }: TokenScannerProps) {
             <AITradingConsensus
               tokenSymbol={result.tokenSymbol}
               language={language}
+              tokenMetrics={{
+                bigFishScore: result.bigFishScore.score,
+                liquidity: result.liquidity,
+                volume24h: result.volume24h,
+                holderConcentration: result.bigFishScore.holderConcentration,
+              }}
             />
 
             {/* Detailed Metrics */}
