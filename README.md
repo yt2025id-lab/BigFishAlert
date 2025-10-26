@@ -1,203 +1,224 @@
 # 🐟 BigFishAlert
 
-**Track the Big Fish in Crypto Ocean**
+> **AI-Powered Solana Whale Tracker** - Protecting retail traders from market manipulation with real-time alerts and predictive AI
 
-Real-time whale monitoring platform that protects retail traders from market manipulation on Solana.
+[![Live Demo](https://img.shields.io/badge/Demo-Live-success?style=for-the-badge&logo=vercel)](https://bigfishalert.vercel.app)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/yt2025id-lab/BigFishAlert)
+[![Solana](https://img.shields.io/badge/Solana-Devnet-9945FF?style=for-the-badge&logo=solana)](https://solana.com)
+[![Next.js](https://img.shields.io/badge/Next.js-16.0-000000?style=for-the-badge&logo=next.js)](https://nextjs.org)
 
-![BigFishAlert Banner](https://img.shields.io/badge/Solana-Devnet-blueviolet) ![Next.js](https://img.shields.io/badge/Next.js-16.0-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue) ![Anchor](https://img.shields.io/badge/Anchor-0.29-orange)
-
----
-
-## 🌊 Overview
-
-BigFishAlert adalah platform pemantauan whale (paus/ikan besar) real-time yang melindungi trader ritel dari manipulasi pasar di Solana blockchain. Dengan menggunakan metafora laut yang mudah dipahami, kami membuat analisis on-chain menjadi accessible untuk semua orang.
-
-### The Problem
-
-Retail traders (small fish) di crypto kehilangan uang karena:
-- 🐋 Big fish (whales) bergerak dengan jutaan dollar tanpa terlihat
-- 🎯 Rug pulls terjadi ketika holder besar keluar tiba-tiba
-- 📊 Data on-chain terlalu kompleks untuk user biasa
-- 🌍 Language barrier (kebanyakan tools hanya English)
-
-### The Solution
-
-**BigFishAlert** = Your fishing radar yang:
-- ✅ Melacak pergerakan big fish secara real-time
-- ✅ Alert ketika whale mulai "berenang pergi"
-- ✅ Memberikan skor risiko 0-100 untuk setiap token
-- ✅ Penjelasan AI menggunakan metafora laut
-- ✅ Bilingual: English + Bahasa Indonesia
-- ✅ On-chain reputation system (trustless)
+**Built for:** [Solana Cypherpunk Hackathon 2025](https://www.colosseum.org) | **Track:** Consumer Apps (Raydium)
 
 ---
 
-## 🚀 Features
+## 📺 Demo
 
-### 1. 🔍 Token Scanner
-Cast your net pada token Solana manapun:
-- Input token address → Get instant analysis
-- **Big Fish Score** (0-100) berdasarkan:
-  - Konsentrasi holder (35%)
-  - Aktivitas whale terkini (30%)
-  - Kedalaman likuiditas (20%)
-  - Security score (10%)
-  - Volume anomaly (5%)
-- Lihat Top 10 holders (the big fish)
-- AI explanation dalam bahasa sederhana
+🎬 **[Watch Demo Video](https://youtube.com/...)** | 🌐 **[Try Live App](https://bigfishalert.vercel.app)**
 
-### 2. 🌊 Ocean Monitor
-Scan seluruh portfolio Anda:
-- Auto-detect token di wallet
-- Alert jika big fish sedang leaving
-- Color-coded risk levels (🔴 🟡 🟢)
-- One-click view semua holdings
+![BigFishAlert Screenshot](https://via.placeholder.com/800x400/1e40af/ffffff?text=BigFishAlert+Screenshot)
 
-### 3. 📊 Live Big Fish Activity
-Track whale movements real-time:
-- Transaksi > $50K USD
-- Kategorisasi: 🐋 Whale, 🦈 Shark, 🐬 Dolphin, 🐟 Big Fish
-- Lihat token mana yang whales sedang masuki/keluar
-- Update setiap 30 detik
+---
 
-### 4. 👑 Fisher Reputation (On-Chain)
-Earn reputation saat Anda scan:
-- Setiap scan = +10 REP
-- Menemukan big fish = +50 REP
-- Ranks:
-  - 🐟 **Minnow** (0-100 REP)
-  - 🎣 **Fisher** (101-500 REP)
-  - ⚓ **Captain** (501-1000 REP)
-  - 👑 **Admiral** (1001+ REP)
-- Leaderboard master fishers
-- Data tersimpan di blockchain (immutable)
+## 🌊 The Problem
 
-### 5. 🌍 Bilingual AI
-Toggle antara bahasa:
-- 🇺🇸 English
-- 🇮🇩 Bahasa Indonesia
-- Ocean metaphors yang universal
+Retail traders (the "small fish") lose millions daily because:
+
+- 🐋 **Whale movements are invisible** - Big holders dump tokens without warning
+- 💸 **Rug pulls happen suddenly** - 85% concentration by top 10 holders = high risk
+- 📊 **On-chain data is complex** - Reading blockchain data requires technical expertise
+- 🌍 **Language barriers exist** - Most tools are English-only, excluding 5B+ non-English speakers
+
+**Result:** Retail traders are the last to know when whales exit, losing their investment.
+
+---
+
+## 💡 Our Solution
+
+**BigFishAlert** is an AI-powered whale monitoring platform that:
+
+✅ **Tracks whale movements in real-time** - Get instant alerts when big fish move
+✅ **Predicts whale behavior with AI** - GPT-4 powered dump probability analysis
+✅ **Shows AI trading consensus** - 6 AI models voting on token sentiment
+✅ **Explains risks in simple terms** - Ocean metaphors anyone can understand
+✅ **Supports multiple languages** - English & Bahasa Indonesia (more coming)
+✅ **100% on-chain verification** - Trustless data from Solana blockchain
+
+---
+
+## ✨ Key Features
+
+### 🔍 1. Token Scanner
+Cast your net on any Solana token and get instant whale analysis:
+
+- **Big Fish Score (0-100)** based on:
+  - 35% Holder Concentration
+  - 30% Recent Whale Activity
+  - 20% Liquidity Depth
+  - 10% Security Score (Rugcheck)
+  - 5% Volume Anomalies
+
+- **Top 10 Whale Holders** with percentage breakdown
+- **AI Ocean Guide** explaining risks in plain language
+
+### 🤖 2. AI Whale Prediction
+GPT-4 powered prediction engine that analyzes:
+
+- **Dump Probability** (0-100%) with confidence level
+- **Predicted Action** (BUY / HOLD / SELL PARTIAL)
+- **Trigger Points** (e.g., "If price hits $X...")
+- **Timeframe Estimate** (24-48h, 3-7 days, etc.)
+- **AI Reasoning** with full transparency
+- **Actionable Recommendations**
+
+### 🏆 3. AI Trading Consensus
+6 AI models compete to predict token performance:
+
+- **DeepSeek Chat V3.1** - Currently leading with +42% return
+- **GROK 4** - Second place at +38% return
+- **Claude Sonnet 4.5** - Conservative HOLD strategy (+24%)
+- **QWEN3 MAX** - Bullish on fundamentals (+9%)
+- **GPT-5** - Bearish outlook (-24%)
+- **Gemini 2.5 Pro** - Risk-off position (-28%)
+
+**Consensus Voting:** Visual breakdown of BUY/HOLD/SELL signals
+
+### 🎨 4. Degen Mode
+Toggle between Professional and Degen themes:
+
+**Professional Mode:**
+- Clean, corporate UI
+- Data-focused charts
+- Subdued colors
+
+**Degen Mode:**
+- 🌟 Neon cyan/green theme
+- 📊 Animated risk speedometer
+- 📈 Live ticker with whale movements
+- 🏅 Social proof badges ("12K+ Scans Today")
+- ⚡ High-energy design for crypto natives
+
+### 🌍 5. Bilingual Support
+Full translation in:
+- 🇺🇸 **English** - For global users
+- 🇮🇩 **Bahasa Indonesia** - 275M+ speakers in Southeast Asia
+
+Ocean metaphors work universally across languages!
+
+### ⚠️ 6. Legal Disclaimers
+Regulatory-compliant design with:
+- **Prominent warning banners** at top of AI sections
+- **Changed terminology** from "RECOMMENDATION: BUY" to "AI SIGNAL: BULLISH PATTERN"
+- **Triple disclaimers** (top warning + info box + footer)
+- **Educational focus** - "For informational purposes only. Not financial advice."
 
 ---
 
 ## 🛠 Tech Stack
 
 ### Frontend
-```
-- Next.js 16 (App Router) + TypeScript
-- Tailwind CSS (ocean-themed design)
-- shadcn/ui components
-- Framer Motion (animations)
-- @solana/wallet-adapter-react
-- @solana/web3.js
-- SWR (data fetching)
+```typescript
+Next.js 16          // App Router with Turbopack
+TypeScript 5.9      // Type safety
+Tailwind CSS        // Utility-first styling
+shadcn/ui           // Component library
+Framer Motion       // Smooth animations
 ```
 
 ### Blockchain
-```
-- Solana Devnet
-- Anchor Framework 0.29 (Rust)
-- Helius RPC & Webhooks
-- On-chain Fisher Reputation program
+```rust
+Solana Web3.js      // Blockchain interaction
+Wallet Adapter      // Phantom, Solflare, etc.
+Anchor Framework    // Smart contract (Rust)
+Helius RPC          // Fast devnet/mainnet access
 ```
 
-### AI & Data
+### AI & APIs
+```python
+OpenAI GPT-4        // Whale behavior predictions
+Dexscreener API     // Real-time market data
+Rugcheck API        // Security analysis
+Helius DAS API      // Token metadata
 ```
-- OpenAI GPT-4 (AI explanations)
-- Dexscreener API (market data)
-- Rugcheck API (security scores)
-- Helius DAS API (holder data)
-```
+
+### Data Sources
+- ✅ **Real on-chain data** from Solana blockchain
+- ✅ **Live market prices** from Dexscreener
+- ✅ **Security scores** from Rugcheck
+- ✅ **Token metadata** from Metaplex standard
 
 ---
 
-## 📦 Installation
+## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ dan npm/yarn
-- Rust & Cargo (untuk Anchor)
-- Solana CLI
-- Anchor CLI
+- Node.js 18+
+- npm or yarn
+- Solana wallet (Phantom/Solflare)
 
-### 1. Clone Repository
-```bash
-git clone https://github.com/yourusername/bigfishalert.git
-cd bigfishalert
-```
+### Installation
 
-### 2. Install Dependencies
 ```bash
+# Clone repository
+git clone https://github.com/yt2025id-lab/BigFishAlert.git
+cd BigFishAlert
+
+# Install dependencies
 npm install
-```
 
-### 3. Setup Environment Variables
-```bash
+# Setup environment variables
 cp .env.local.example .env.local
-```
 
-Edit `.env.local`:
-```env
-NEXT_PUBLIC_HELIUS_API_KEY=your_helius_api_key
-NEXT_PUBLIC_HELIUS_RPC_URL=https://devnet.helius-rpc.com/?api-key=your_key
-OPENAI_API_KEY=your_openai_api_key
-NEXT_PUBLIC_SOLANA_NETWORK=devnet
-NEXT_PUBLIC_PROGRAM_ID=your_deployed_program_id
-```
-
-### 4. Run Development Server
-```bash
+# Run development server
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) 🎉
 
----
+### Environment Variables
 
-## 🔧 Build & Deploy Anchor Program
-
-### Build Program
-```bash
-anchor build
-```
-
-### Deploy to Devnet
-```bash
-anchor deploy --provider.cluster devnet
-```
-
-### Get Program ID
-```bash
-solana address -k target/deploy/bigfishalert-keypair.json
-```
-
-Copy Program ID ke `.env.local`:
 ```env
-NEXT_PUBLIC_PROGRAM_ID=<your_program_id>
+# Optional: Helius API key for faster RPC
+NEXT_PUBLIC_HELIUS_API_KEY=your_key_here
+
+# Optional: OpenAI for AI predictions
+OPENAI_API_KEY=your_openai_key
+
+# Network (devnet/mainnet-beta)
+NEXT_PUBLIC_SOLANA_NETWORK=devnet
 ```
+
+**Note:** App works without API keys using public RPCs and fallback logic!
 
 ---
 
-## 🎮 Usage Guide
+## 📖 How to Use
 
-### 1. Connect Wallet
-- Click **"Connect Wallet"** di header
-- Pilih Phantom atau Solflare
+### 1. Connect Wallet (Optional)
+- Click "Connect Wallet" in header
+- Choose Phantom or Solflare
 - Approve connection
 
-### 2. Scan Token
-- Paste alamat token Solana di input field
-- Click **"Cast Net"** 🎣
-- Lihat Big Fish Score + AI explanation
+**Note:** You can scan tokens WITHOUT connecting wallet!
 
-### 3. Monitor Portfolio
-- Wallet terconnect otomatis scan holdings
-- Lihat mana token yang berisiko tinggi
-- Get alerts untuk whale movements
+### 2. Scan a Token
+1. Paste Solana token address (44 characters)
+   - Example BONK: `DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263`
+2. Click **"Cast Net"** 🎣
+3. View results:
+   - Risk Speedometer (visual gauge)
+   - AI Ocean Guide explanation
+   - AI Whale Prediction (dump probability)
+   - AI Trading Consensus (6 models)
+   - Top 10 whale holders
 
-### 4. Earn Reputation
-- Setiap scan akan terecord on-chain
-- Accumulate reputation points
-- Climb the leaderboard
+### 3. Toggle Degen Mode
+- Click theme toggle in header
+- Switch between Professional ↔️ Degen mode
+- Enjoy neon aesthetics! ⚡
+
+### 4. Change Language
+- Click language toggle (🇺🇸 / 🇮🇩)
+- All text translates instantly
 
 ---
 
@@ -205,123 +226,242 @@ NEXT_PUBLIC_PROGRAM_ID=<your_program_id>
 
 ```
 bigfishalert/
-├── app/                      # Next.js App Router
-│   ├── api/                  # API routes
-│   │   ├── scan-token/       # Token scanner endpoint
-│   │   ├── scan-ocean/       # Portfolio scanner
-│   │   └── big-fish-activity/# Whale tracking
-│   ├── layout.tsx            # Root layout
-│   ├── page.tsx              # Home page
-│   └── globals.css           # Global styles
+├── app/
+│   ├── api/
+│   │   ├── scan-token/          # Main scanner API
+│   │   ├── ai-explain/          # GPT-4 explanations
+│   │   ├── ai-predict-whale/    # Whale predictions
+│   │   └── big-fish-feed/       # Live whale activity
+│   ├── layout.tsx               # Root layout
+│   ├── page.tsx                 # Home page
+│   └── globals.css              # Global styles
+│
 ├── components/
-│   ├── ui/                   # shadcn/ui components
-│   └── WalletProvider.tsx    # Solana wallet context
+│   ├── TokenScanner.tsx         # Main scanner UI
+│   ├── AIWhalePrediction.tsx    # AI prediction display
+│   ├── AITradingConsensus.tsx   # AI models leaderboard
+│   ├── WalletProvider.tsx       # Solana wallet context
+│   ├── ThemeToggle.tsx          # Degen mode toggle
+│   ├── degen/
+│   │   ├── RiskSpeedometer.tsx  # Animated gauge
+│   │   ├── LiveTicker.tsx       # Whale movement ticker
+│   │   └── SocialProof.tsx      # Stats badges
+│   └── ui/                      # shadcn components
+│
 ├── lib/
-│   ├── solana/               # Solana utilities
-│   │   ├── config.ts
-│   │   └── types.ts
-│   ├── i18n/                 # Translations
-│   │   └── translations.ts
-│   └── utils.ts              # Helper functions
+│   ├── api/
+│   │   ├── helius.ts            # Solana RPC calls
+│   │   ├── dexscreener.ts       # Market data API
+│   │   └── rugcheck.ts          # Security scores
+│   ├── scoring/
+│   │   └── bigFishAlgorithm.ts  # Risk calculation
+│   ├── i18n/
+│   │   ├── translations.ts      # Language files
+│   │   └── degenSpeak.ts        # Degen mode text
+│   └── contexts/
+│       └── ThemeContext.tsx     # Theme state
+│
 ├── programs/
-│   └── bigfishalert/         # Anchor program
-│       ├── src/
-│       │   └── lib.rs        # Smart contract
-│       └── Cargo.toml
-├── Anchor.toml               # Anchor configuration
-├── next.config.js            # Next.js config
-├── tailwind.config.ts        # Tailwind config
-└── package.json
+│   └── bigfishalert/
+│       └── src/
+│           └── lib.rs           # Anchor smart contract
+│
+└── docs/                        # Documentation
 ```
 
 ---
 
-## 🔐 Security
+## 🎯 What Makes This Special
 
-- **No Private Keys Stored**: Menggunakan wallet adapter
-- **On-Chain Verification**: Reputation stored di blockchain
-- **Read-Only API Keys**: Public RPC endpoints
-- **Client-Side Scanning**: No sensitive data di server
+### 1. Consumer-First Design
+- **Ocean metaphors** make blockchain accessible to everyone
+- No technical jargon - "whales swimming away" vs "large token transfers"
+- Beautiful UI that doesn't look like a terminal
 
----
+### 2. Unique AI Features
+- **GPT-4 Whale Predictions** - Industry-first dump probability analysis
+- **Multi-model Consensus** - 6 AI models voting on token sentiment
+- **Transparent reasoning** - See WHY AI thinks what it thinks
 
-## 🌟 Why BigFishAlert Wins
+### 3. Regulatory Awareness
+- Clear disclaimers preventing financial advice liability
+- Educational framing ("sentiment tracker" not "trading signals")
+- Experimental feature warnings
+- DYOR (Do Your Own Research) emphasized
 
-### 1. Consumer-Focused
-Ocean metaphor yang semua orang mengerti - tidak perlu background teknikal
+### 4. Bilingual from Day 1
+- English + Indonesian = 350M+ addressable market
+- Underserved SEA crypto community
+- Cultural adaptation, not just translation
 
-### 2. Bilingual
-Melayani pasar Indonesia (250M+ populasi) yang underserved oleh English-only tools
+### 5. Real Data, Not Mocks
+- Live Solana blockchain data
+- Real-time Dexscreener prices
+- Actual Rugcheck security scores
+- Metaplex token metadata
 
-### 3. Solana-Native
-Menggunakan Anchor, wallet adapter, on-chain data secara native
-
-### 4. Real Utility
-Mencegah actual losses dari whale dumps - bukan hanya spekulasi
-
-### 5. Viral Mechanics
-Built-in sharing + leaderboard = natural growth
-
----
-
-## 🗺 Roadmap
-
-### Phase 1 (Post-Hackathon)
-- [ ] Telegram bot untuk instant alerts
-- [ ] Mobile-responsive improvements
-- [ ] More language support (Spanish, Chinese)
-
-### Phase 2 (Q2 2025)
-- [ ] Historical big fish pattern analysis
-- [ ] Token watchlist feature
-- [ ] Browser extension
-- [ ] Discord integration
-
-### Phase 3 (Q3 2025)
-- [ ] Premium tier dengan advanced analytics
-- [ ] DAO governance untuk fisher community
-- [ ] Cross-chain expansion (Ethereum, Base)
+### 6. Degen Mode
+- First whale tracker with "vibe shift" UI
+- Appeals to crypto-native users
+- Viral potential through unique aesthetics
 
 ---
 
-## 👥 Team
+## 🔐 Security & Privacy
 
-Built with ❤️ for **Solana Cypherpunk Hackathon 2025**
+- ✅ **No private keys stored** - Uses Solana Wallet Adapter
+- ✅ **Client-side scanning** - No sensitive data sent to servers
+- ✅ **Read-only RPC calls** - Cannot move user funds
+- ✅ **Public API endpoints** - No authentication required
+- ✅ **Open source** - Full code transparency
 
-- **Developer**: [Your Name]
-- **Track**: Consumer Apps (hosted by Raydium)
+---
+
+## 📊 Roadmap
+
+### Phase 1: Post-Hackathon (Q1 2025)
+- [ ] Telegram bot for instant whale alerts
+- [ ] Portfolio tracking (multiple tokens)
+- [ ] Historical whale pattern analysis
+- [ ] More languages (Spanish, Chinese, Japanese)
+
+### Phase 2: Mobile & Extensions (Q2 2025)
+- [ ] React Native mobile app
+- [ ] Browser extension (Chrome/Firefox)
+- [ ] Discord bot integration
+- [ ] Watchlist & notifications
+
+### Phase 3: Advanced Features (Q3 2025)
+- [ ] Premium tier (advanced analytics)
+- [ ] AI training on custom strategies
+- [ ] Cross-chain support (Ethereum, Base)
+- [ ] Community DAO governance
+
+### Phase 4: Scale (Q4 2025)
+- [ ] 1M+ users milestone
+- [ ] Institutional API
+- [ ] White-label solutions
+- [ ] Revenue sharing for contributors
+
+---
+
+## 🏆 Hackathon Highlights
+
+**Why BigFishAlert Should Win Consumer Apps Track:**
+
+1. **📱 Actually Consumer-Friendly**
+   - No blockchain knowledge required
+   - Beautiful UI, not "developer tool"
+   - Onboards non-crypto users
+
+2. **🚀 Real Innovation**
+   - First AI whale prediction on Solana
+   - Multi-model consensus voting
+   - Degen mode aesthetic innovation
+
+3. **🌍 Market Opportunity**
+   - 275M+ Indonesian speakers underserved
+   - Whale tracking = proven pain point
+   - Viral mechanics (leaderboard, sharing)
+
+4. **💎 Technical Excellence**
+   - Next.js 16 with Turbopack
+   - Anchor smart contract
+   - GPT-4 integration
+   - Real-time data processing
+
+5. **✅ Fully Functional**
+   - Live deployment: [bigfishalert.vercel.app](https://bigfishalert.vercel.app)
+   - Working AI predictions
+   - Real Solana data
+   - Open source code
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
+
+### Quick Contribution Guide
+
+```bash
+# Fork the repo
+git clone https://github.com/YOUR_USERNAME/BigFishAlert.git
+
+# Create feature branch
+git checkout -b feature/amazing-feature
+
+# Make changes and commit
+git commit -m "Add amazing feature"
+
+# Push and create PR
+git push origin feature/amazing-feature
+```
 
 ---
 
 ## 📄 License
 
-MIT License - feel free to fork and build!
+MIT License - see [LICENSE](./LICENSE) file for details.
+
+**TL;DR:** Free to use, modify, and distribute. Attribution appreciated!
 
 ---
 
 ## 🙏 Acknowledgments
 
-- Solana Foundation
-- Raydium (Consumer Apps track sponsor)
-- Helius (RPC & APIs)
-- OpenAI (GPT-4)
-- Anchor community
+**Special Thanks:**
+- 🏛 **Solana Foundation** - For the incredible blockchain
+- 🌊 **Raydium** - Consumer Apps track sponsor
+- ⚡ **Helius** - Fast RPC infrastructure
+- 🤖 **OpenAI** - GPT-4 API access
+- ⚓ **Anchor Community** - Smart contract framework
+- 🎨 **shadcn** - Beautiful UI components
+
+**Inspiration:**
+- Whale Alert (Twitter bot)
+- Nansen (Ethereum analytics)
+- Bubblemaps (Token visualization)
 
 ---
 
-## 📞 Contact
+## 📞 Contact & Links
 
-- **Website**: https://bigfishalert.xyz
-- **Twitter**: [@bigfishalert](https://twitter.com/bigfishalert)
-- **GitHub**: [github.com/yourusername/bigfishalert](https://github.com/yourusername/bigfishalert)
-- **Email**: hello@bigfishalert.xyz
+- 🌐 **Website:** [https://bigfishalert.vercel.app](https://bigfishalert.vercel.app)
+- 📂 **GitHub:** [https://github.com/yt2025id-lab/BigFishAlert](https://github.com/yt2025id-lab/BigFishAlert)
+- 🐦 **Twitter:** [@bigfishalert](https://twitter.com/bigfishalert) *(coming soon)*
+- 📧 **Email:** hello@bigfishalert.xyz *(coming soon)*
+
+---
+
+## 📸 Screenshots
+
+### Professional Mode
+![Professional Mode](https://via.placeholder.com/800x500/1e40af/ffffff?text=Professional+Mode)
+
+### Degen Mode
+![Degen Mode](https://via.placeholder.com/800x500/14b8a6/000000?text=Degen+Mode)
+
+### AI Whale Prediction
+![AI Prediction](https://via.placeholder.com/800x500/8b5cf6/ffffff?text=AI+Whale+Prediction)
+
+### AI Trading Consensus
+![Trading Consensus](https://via.placeholder.com/800x500/f59e0b/000000?text=AI+Trading+Consensus)
 
 ---
 
 <div align="center">
 
-### 🐟 Protecting small fish from big fish since 2025
+## 🐟 Protecting Small Fish from Big Fish
 
-**[Live Demo](https://bigfishalert.xyz)** • **[Video](https://youtube.com/...)** • **[Docs](https://docs.bigfishalert.xyz)**
+### Built for Solana Cypherpunk Hackathon 2025
+
+**[🎬 Watch Demo](https://youtube.com/...)** • **[🚀 Try Live App](https://bigfishalert.vercel.app)** • **[📖 Read Docs](./docs)**
+
+[![Star on GitHub](https://img.shields.io/github/stars/yt2025id-lab/BigFishAlert?style=social)](https://github.com/yt2025id-lab/BigFishAlert)
+
+---
+
+*Made with ❤️ for the Solana community*
 
 </div>
