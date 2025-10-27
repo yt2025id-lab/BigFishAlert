@@ -149,43 +149,60 @@ export function TokenScanner({ language, connected, onScanComplete }: TokenScann
             </div>
           ) : (
             <>
-              <div className="flex gap-2">
-                <Input
-                  placeholder={
-                    language === 'en'
-                      ? 'Token address (e.g., So11111...)'
-                      : 'Alamat token (mis., So11111...)'
-                  }
-                  value={tokenAddress}
-                  onChange={(e) => setTokenAddress(e.target.value)}
-                  onKeyDown={(e) => e.key === 'Enter' && !loading && handleScan()}
-                  className="bg-ocean-950/50 border-ocean-700 text-ocean-50 placeholder:text-ocean-400"
-                  disabled={loading}
-                />
-                <Button
-                  size="lg"
-                  disabled={!tokenAddress.trim() || loading}
-                  onClick={handleScan}
-              className={isDegen ? "fishing-rod px-8 py-6 text-lg font-black uppercase" : "fishing-rod"}
-              style={isDegen ? {
-                background: 'linear-gradient(135deg, #00FF41 0%, #00D9FF 100%)',
-                boxShadow: '0 0 30px rgba(0, 255, 65, 0.6), 0 0 60px rgba(0, 217, 255, 0.4)',
-                border: '2px solid #00FF41',
-                color: '#0A0E27',
-              } : undefined}
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                  {isDegen ? getDegenText('scanning', language) : (language === 'en' ? 'Scanning...' : 'Memindai...')}
-                </>
-              ) : (
-                <>
-                  <Search className="w-5 h-5 mr-2" />
-                  {isDegen ? getDegenText('castNet', language) : (language === 'en' ? 'Cast Net' : 'Lempar Jala')}
-                </>
-              )}
-            </Button>
+              <div className="space-y-3">
+                <div className="flex gap-2">
+                  <Input
+                    placeholder={
+                      language === 'en'
+                        ? 'Paste Solana token address here'
+                        : 'Paste alamat token Solana di sini'
+                    }
+                    value={tokenAddress}
+                    onChange={(e) => setTokenAddress(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && !loading && handleScan()}
+                    className="bg-ocean-950/50 border-ocean-700 text-ocean-50 placeholder:text-ocean-400"
+                    disabled={loading}
+                  />
+                  <Button
+                    size="lg"
+                    disabled={!tokenAddress.trim() || loading}
+                    onClick={handleScan}
+                className={isDegen ? "fishing-rod px-8 py-6 text-lg font-black uppercase" : "fishing-rod"}
+                style={isDegen ? {
+                  background: 'linear-gradient(135deg, #00FF41 0%, #00D9FF 100%)',
+                  boxShadow: '0 0 30px rgba(0, 255, 65, 0.6), 0 0 60px rgba(0, 217, 255, 0.4)',
+                  border: '2px solid #00FF41',
+                  color: '#0A0E27',
+                } : undefined}
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    {isDegen ? getDegenText('scanning', language) : (language === 'en' ? 'Scanning...' : 'Memindai...')}
+                  </>
+                ) : (
+                  <>
+                    <Search className="w-5 h-5 mr-2" />
+                    {isDegen ? getDegenText('castNet', language) : (language === 'en' ? 'Cast Net' : 'Lempar Jala')}
+                  </>
+                )}
+              </Button>
+            </div>
+
+            {/* Solana-only warning hint */}
+            <div className="flex items-start gap-2 text-xs text-ocean-300 bg-ocean-950/30 border border-ocean-700/50 rounded-lg px-3 py-2">
+              <span className="text-yellow-400 flex-shrink-0">⚡</span>
+              <p>
+                {language === 'en'
+                  ? 'Solana blockchain only. Ethereum, BSC, or other chain addresses will not work.'
+                  : 'Hanya blockchain Solana. Alamat Ethereum, BSC, atau chain lain tidak akan bekerja.'}
+                <span className="block mt-1 text-ocean-400">
+                  {language === 'en'
+                    ? 'Example: So11111111111111111111111111111111111111112 (SOL)'
+                    : 'Contoh: So11111111111111111111111111111111111111112 (SOL)'}
+                </span>
+              </p>
+            </div>
           </div>
 
             {error && (
