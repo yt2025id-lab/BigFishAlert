@@ -190,16 +190,15 @@ export function TokenScanner({ language, connected, onScanComplete }: TokenScann
             </div>
 
             {/* Solana-only warning hint */}
-            <div className="flex items-start gap-2 text-xs text-ocean-300 bg-ocean-950/30 border border-ocean-700/50 rounded-lg px-3 py-2">
+            <div className="flex items-center gap-2 text-xs text-ocean-300 bg-ocean-950/30 border border-ocean-700/50 rounded-lg px-3 py-2">
               <span className="text-yellow-400 flex-shrink-0">⚡</span>
               <p>
-                {language === 'en'
-                  ? 'Solana blockchain only. Ethereum, BSC, or other chain addresses will not work.'
-                  : 'Hanya blockchain Solana. Alamat Ethereum, BSC, atau chain lain tidak akan bekerja.'}
-                <span className="block mt-1 text-ocean-400">
-                  {language === 'en'
-                    ? 'Example: So11111111111111111111111111111111111111112 (SOL)'
-                    : 'Contoh: So11111111111111111111111111111111111111112 (SOL)'}
+                <span className="font-semibold text-ocean-100">
+                  {language === 'en' ? 'Solana only' : 'Solana saja'}
+                </span>
+                {' · '}
+                <span className="text-ocean-400">
+                  {language === 'en' ? 'ETH/BSC not supported' : 'ETH/BSC tidak support'}
                 </span>
               </p>
             </div>
