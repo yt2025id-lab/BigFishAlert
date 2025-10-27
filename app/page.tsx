@@ -11,7 +11,6 @@ import { Search, Waves, Activity, Trophy, Fish } from 'lucide-react';
 import { useTheme } from '@/lib/contexts/ThemeContext';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { LiveTicker } from '@/components/degen/LiveTicker';
-import { SocialProof } from '@/components/degen/SocialProof';
 import { TokenScanner } from '@/components/TokenScanner';
 import { getDegenText } from '@/lib/i18n/degenSpeak';
 import { useFisherProfile } from '@/lib/hooks/useFisherProfile';
@@ -85,9 +84,6 @@ export default function Home() {
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-12 relative z-10">
-        {/* Social Proof - Degen Mode Only */}
-        {isDegen && <SocialProof />}
-
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="text-6xl mb-4 fish-swim">🐋</div>
