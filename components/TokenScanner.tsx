@@ -17,9 +17,10 @@ import { AITradingConsensus } from '@/components/AITradingConsensus';
 interface TokenScannerProps {
   language: 'en' | 'id';
   connected: boolean;
+  onScanComplete?: (bigFishScore: number) => void; // Callback to update fisher profile
 }
 
-export function TokenScanner({ language, connected }: TokenScannerProps) {
+export function TokenScanner({ language, connected, onScanComplete }: TokenScannerProps) {
   const { isDegen } = useTheme();
   const [tokenAddress, setTokenAddress] = useState('');
   const [loading, setLoading] = useState(false);
@@ -49,6 +50,11 @@ export function TokenScanner({ language, connected }: TokenScannerProps) {
 
       const scanData = await scanResponse.json();
       setResult(scanData.data);
+
+      // Notify parent component about successful scan (for fisher profile tracking)
+      if (onScanComplete && scanData.data?.bigFishScore?.score) {
+        onScanComplete(scanData.data.bigFishScore.score);
+      }
 
       // Get AI explanation
       const aiResponse = await fetch('/api/ai-explain', {
