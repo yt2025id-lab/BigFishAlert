@@ -171,9 +171,8 @@ export default function Home() {
           <TokenScanner language={language} connected={connected} onScanComplete={recordScan} />
         </div>
 
-        {/* Stats Section */}
-        {connected && publicKey && (
-          <Card className="max-w-3xl mx-auto mt-8 card-glow bg-gradient-to-br from-ocean-900/80 to-ocean-800/80 border-ocean-600">
+        {/* Stats Section - Fisher Profile (no wallet needed!) */}
+        <Card className="max-w-3xl mx-auto mt-8 card-glow bg-gradient-to-br from-ocean-900/80 to-ocean-800/80 border-ocean-600">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-ocean-50">
                 <Trophy className="w-5 h-5" />
@@ -271,7 +270,6 @@ export default function Home() {
               </div>
             </CardContent>
           </Card>
-        )}
       </div>
 
       {/* Footer */}

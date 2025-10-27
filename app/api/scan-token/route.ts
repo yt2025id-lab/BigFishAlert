@@ -55,11 +55,16 @@ export async function POST(request: NextRequest) {
     if (!tokenName || tokenName === '') tokenName = 'Unknown Token';
     if (!tokenSymbol || tokenSymbol === '') tokenSymbol = 'UNKNOWN';
 
-    // Convert total supply from string to number
-    const totalSupply = metadata?.supply ? parseFloat(metadata.supply) : 0;
+    // Convert total supply from raw amount to UI amount (with decimals)
+    // metadata.supply is a raw string like "1000000000000000"
+    // We need to divide by 10^decimals to get the actual UI supply
+    const decimals = metadata?.decimals || 9;
+    const rawSupply = metadata?.supply ? parseFloat(metadata.supply) : 0;
+    const totalSupply = rawSupply > 0 ? rawSupply / Math.pow(10, decimals) : 0;
 
     // Convert holders to TokenHolder format with percentage
     const formattedHolders: TokenHolder[] = holdersList.map((holder) => {
+      // holder.uiAmount is already in UI format (actual tokens)
       const percentage = totalSupply > 0 ? (holder.uiAmount / totalSupply) * 100 : 0;
       return {
         address: holder.owner,
