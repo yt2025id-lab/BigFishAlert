@@ -12,7 +12,6 @@ import { useTheme } from '@/lib/contexts/ThemeContext';
 import { getDegenText } from '@/lib/i18n/degenSpeak';
 import { RiskSpeedometer } from '@/components/degen/RiskSpeedometer';
 import { AIWhalePrediction } from '@/components/AIWhalePrediction';
-import { AITradingConsensus } from '@/components/AITradingConsensus';
 
 interface TokenScannerProps {
   language: 'en' | 'id';
@@ -235,17 +234,75 @@ export function TokenScanner({ language, connected, onScanComplete }: TokenScann
               />
             )}
 
-            {/* AI Trading Consensus - NEW! */}
-            <AITradingConsensus
-              tokenSymbol={result.tokenSymbol}
-              language={language}
-              tokenMetrics={{
-                bigFishScore: result.bigFishScore.score,
-                liquidity: result.liquidity,
-                volume24h: result.volume24h,
-                holderConcentration: result.bigFishScore.holderConcentration,
-              }}
-            />
+            {/* Whale Risk Verdict - Clear and Prominent */}
+            <Card className="bg-gradient-to-br from-ocean-900/80 to-ocean-800/80 border-ocean-600">
+              <CardContent className="pt-6">
+                {result.bigFishScore.holderConcentration > 70 ? (
+                  <div className="p-6 rounded-lg bg-red-500/20 border-2 border-red-500">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="text-4xl">🚨</div>
+                      <div>
+                        <div className="text-2xl font-black text-red-400 uppercase">
+                          {language === 'en' ? 'DANGER - Whale Controlled' : 'BAHAYA - Dikontrol Paus'}
+                        </div>
+                        <div className="text-sm text-red-200">
+                          {language === 'en'
+                            ? `Top holders own ${result.bigFishScore.holderConcentration.toFixed(0)}% of supply. HIGH RUG RISK!`
+                            : `Holder teratas menguasai ${result.bigFishScore.holderConcentration.toFixed(0)}% supply. RISIKO RUG TINGGI!`}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="text-xs text-red-200">
+                      {language === 'en'
+                        ? '⚠️ Whales can dump and crash the price anytime. Proceed with extreme caution!'
+                        : '⚠️ Paus bisa dump dan hancurkan harga kapan saja. Lanjutkan dengan sangat hati-hati!'}
+                    </div>
+                  </div>
+                ) : result.bigFishScore.holderConcentration > 50 ? (
+                  <div className="p-6 rounded-lg bg-yellow-500/20 border-2 border-yellow-500">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="text-4xl">⚠️</div>
+                      <div>
+                        <div className="text-2xl font-black text-yellow-400 uppercase">
+                          {language === 'en' ? 'CAUTION - Whale Risk Detected' : 'HATI-HATI - Risiko Paus Terdeteksi'}
+                        </div>
+                        <div className="text-sm text-yellow-200">
+                          {language === 'en'
+                            ? `Top holders own ${result.bigFishScore.holderConcentration.toFixed(0)}% of supply. Medium risk.`
+                            : `Holder teratas menguasai ${result.bigFishScore.holderConcentration.toFixed(0)}% supply. Risiko sedang.`}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="text-xs text-yellow-200">
+                      {language === 'en'
+                        ? '⚠️ Significant whale concentration. Watch for large movements before investing.'
+                        : '⚠️ Konsentrasi paus signifikan. Awasi pergerakan besar sebelum investasi.'}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="p-6 rounded-lg bg-green-500/20 border-2 border-green-500">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="text-4xl">✅</div>
+                      <div>
+                        <div className="text-2xl font-black text-green-400 uppercase">
+                          {language === 'en' ? 'SAFE - Well Distributed' : 'AMAN - Terdistribusi Baik'}
+                        </div>
+                        <div className="text-sm text-green-200">
+                          {language === 'en'
+                            ? `Top holders own ${result.bigFishScore.holderConcentration.toFixed(0)}% of supply. Decentralized!`
+                            : `Holder teratas menguasai ${result.bigFishScore.holderConcentration.toFixed(0)}% supply. Terdesentralisasi!`}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="text-xs text-green-200">
+                      {language === 'en'
+                        ? '✅ Good token distribution. Lower risk of whale manipulation.'
+                        : '✅ Distribusi token bagus. Risiko manipulasi paus lebih rendah.'}
+                    </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
 
             {/* Detailed Metrics */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

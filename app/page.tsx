@@ -91,15 +91,15 @@ export default function Home() {
             {isDegen
               ? getDegenText('heroTitle', language)
               : (language === 'en'
-                ? 'Track the Big Fish in Crypto Ocean'
-                : 'Lacak Ikan Besar di Lautan Kripto')}
+                ? "Don't Get REKT by Whales"
+                : 'Jangan Kena Tipu oleh Paus')}
           </h2>
           <p className={`text-xl text-blue-100 max-w-2xl mx-auto ${isDegen ? 'font-bold text-2xl' : ''}`}>
             {isDegen
               ? getDegenText('heroSubtitle', language)
               : (language === 'en'
-                ? 'Real-time whale monitoring that protects retail traders from market manipulation'
-                : 'Pemantauan paus real-time yang melindungi pedagang ritel dari manipulasi pasar')}
+                ? 'Detect whale concentration before you invest. AI-powered on-chain analysis protects you from rug pulls.'
+                : 'Deteksi konsentrasi paus sebelum investasi. Analisis on-chain bertenaga AI melindungi Anda dari rug pull.')}
           </p>
         </div>
 
@@ -109,54 +109,54 @@ export default function Home() {
             <CardHeader>
               <div className="text-3xl mb-2">🔍</div>
               <CardTitle className="text-ocean-100">
-                {language === 'en' ? 'Token Scanner' : 'Pemindai Token'}
+                {language === 'en' ? 'Whale Scanner' : 'Pemindai Paus'}
               </CardTitle>
               <CardDescription className="text-ocean-300">
                 {language === 'en'
-                  ? 'Analyze any Solana token for whale activity'
-                  : 'Analisis token Solana untuk aktivitas paus'}
+                  ? 'Detect whale concentration instantly'
+                  : 'Deteksi konsentrasi paus secara instan'}
               </CardDescription>
             </CardHeader>
           </Card>
 
           <Card className="card-glow bg-gradient-to-br from-ocean-900/50 to-ocean-800/50 border-ocean-700">
             <CardHeader>
-              <div className="text-3xl mb-2">🌊</div>
+              <div className="text-3xl mb-2">🤖</div>
               <CardTitle className="text-ocean-100">
-                {language === 'en' ? 'Ocean Monitor' : 'Monitor Lautan'}
+                {language === 'en' ? 'AI Risk Analysis' : 'Analisis Risiko AI'}
               </CardTitle>
               <CardDescription className="text-ocean-300">
                 {language === 'en'
-                  ? 'Track your entire portfolio for risks'
-                  : 'Lacak seluruh portofolio untuk risiko'}
+                  ? 'AI explains whale risks in plain English'
+                  : 'AI menjelaskan risiko paus dengan bahasa sederhana'}
               </CardDescription>
             </CardHeader>
           </Card>
 
           <Card className="card-glow bg-gradient-to-br from-ocean-900/50 to-ocean-800/50 border-ocean-700">
             <CardHeader>
-              <div className="text-3xl mb-2">📊</div>
+              <div className="text-3xl mb-2">🚨</div>
               <CardTitle className="text-ocean-100">
-                {language === 'en' ? 'Live Activity' : 'Aktivitas Langsung'}
+                {language === 'en' ? 'Rug Protection' : 'Perlindungan Rug'}
               </CardTitle>
               <CardDescription className="text-ocean-300">
                 {language === 'en'
-                  ? 'See whale movements in real-time'
-                  : 'Lihat pergerakan paus secara real-time'}
+                  ? 'Know before you ape in'
+                  : 'Tahu sebelum terjun masuk'}
               </CardDescription>
             </CardHeader>
           </Card>
 
           <Card className="card-glow bg-gradient-to-br from-ocean-900/50 to-ocean-800/50 border-ocean-700">
             <CardHeader>
-              <div className="text-3xl mb-2">👑</div>
+              <div className="text-3xl mb-2">🎣</div>
               <CardTitle className="text-ocean-100">
-                {language === 'en' ? 'Fisher Rank' : 'Peringkat Nelayan'}
+                {language === 'en' ? 'Whale Hunter' : 'Pemburu Paus'}
               </CardTitle>
               <CardDescription className="text-ocean-300">
                 {language === 'en'
-                  ? 'Earn reputation on-chain'
-                  : 'Dapatkan reputasi on-chain'}
+                  ? 'Earn reputation hunting risky tokens'
+                  : 'Dapatkan reputasi memburu token berisiko'}
               </CardDescription>
             </CardHeader>
           </Card>
