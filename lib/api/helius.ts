@@ -7,14 +7,13 @@ import { Connection, PublicKey } from '@solana/web3.js';
 
 const HELIUS_API_KEY = process.env.NEXT_PUBLIC_HELIUS_API_KEY || '';
 
-// Use DEVNET for hackathon (free, safe for testing)
-// For production, change to mainnet.helius-rpc.com
-const HELIUS_RPC_URL = `https://devnet.helius-rpc.com/?api-key=${HELIUS_API_KEY}`;
+// Use MAINNET-BETA for production (real token data)
+const HELIUS_RPC_URL = `https://mainnet.helius-rpc.com/?api-key=${HELIUS_API_KEY}`;
 
-// Fallback to public RPC if no API key
+// Fallback to public mainnet RPC if no API key
 const RPC_URL = HELIUS_API_KEY
   ? HELIUS_RPC_URL
-  : 'https://api.devnet.solana.com';
+  : 'https://api.mainnet-beta.solana.com';
 
 export const connection = new Connection(RPC_URL, 'confirmed');
 
