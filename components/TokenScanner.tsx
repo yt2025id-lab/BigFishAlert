@@ -247,31 +247,61 @@ export function TokenScanner({ language, connected }: TokenScannerProps) {
                 label={language === 'en' ? 'Holder Concentration' : 'Konsentrasi Pemegang'}
                 value={result.bigFishScore.holderConcentration}
                 max={100}
+                description={
+                  language === 'en'
+                    ? 'Higher = More tokens held by top wallets (risky if >70)'
+                    : 'Lebih tinggi = Token lebih banyak di wallet besar (berisiko jika >70)'
+                }
               />
               <MetricCard
                 label={language === 'en' ? 'Recent Activity' : 'Aktivitas Terkini'}
                 value={result.bigFishScore.recentActivity}
                 max={100}
+                description={
+                  language === 'en'
+                    ? 'Trading volume in last 24h. Higher = More active'
+                    : 'Volume trading 24 jam terakhir. Lebih tinggi = Lebih aktif'
+                }
               />
               <MetricCard
                 label={language === 'en' ? 'Liquidity Depth' : 'Kedalaman Likuiditas'}
                 value={result.bigFishScore.liquidityDepth}
                 max={100}
+                description={
+                  language === 'en'
+                    ? 'How easy to buy/sell. Higher = Less price impact'
+                    : 'Seberapa mudah beli/jual. Lebih tinggi = Dampak harga lebih kecil'
+                }
               />
               <MetricCard
                 label={language === 'en' ? 'Security Score' : 'Skor Keamanan'}
                 value={result.bigFishScore.securityScore}
                 max={100}
+                description={
+                  language === 'en'
+                    ? 'Safety check from Rugcheck.xyz. Higher = Safer'
+                    : 'Cek keamanan dari Rugcheck.xyz. Lebih tinggi = Lebih aman'
+                }
               />
               <MetricCard
                 label={language === 'en' ? 'Volume Anomaly' : 'Anomali Volume'}
                 value={result.bigFishScore.volumeAnomaly}
                 max={100}
+                description={
+                  language === 'en'
+                    ? 'Unusual trading spike. Higher = Possible manipulation'
+                    : 'Lonjakan trading tidak biasa. Lebih tinggi = Mungkin manipulasi'
+                }
               />
               <MetricCard
                 label={language === 'en' ? 'Liquidity' : 'Likuiditas'}
                 value={formatCurrency(result.liquidity)}
                 max={0}
+                description={
+                  language === 'en'
+                    ? 'Total USD locked in pools. Higher = Better for trading'
+                    : 'Total USD di pool. Lebih tinggi = Lebih baik untuk trading'
+                }
               />
             </div>
 
@@ -311,22 +341,41 @@ export function TokenScanner({ language, connected }: TokenScannerProps) {
   );
 }
 
-function MetricCard({ label, value, max }: { label: string; value: number | string; max: number }) {
+function MetricCard({
+  label,
+  value,
+  max,
+  description,
+}: {
+  label: string;
+  value: number | string;
+  max: number;
+  description?: string;
+}) {
   const isNumeric = typeof value === 'number';
   const percentage = isNumeric && max > 0 ? Math.round((value / max) * 100) : 0;
 
   return (
-    <div className="p-4 rounded-lg bg-ocean-950/30">
-      <div className="text-sm text-ocean-300 mb-1">{label}</div>
+    <div className="p-4 rounded-lg bg-ocean-950/30 hover:bg-ocean-950/50 transition-colors group">
+      <div className="text-sm text-ocean-300 mb-1 flex items-center gap-1">
+        {label}
+        {description && (
+          <span className="text-xs text-ocean-500 group-hover:text-ocean-400 transition-colors">
+            ⓘ
+          </span>
+        )}
+      </div>
       <div className="text-2xl font-bold text-ocean-50">
         {isNumeric ? Math.round(value) : value}
       </div>
+      {description && (
+        <div className="text-xs text-ocean-400 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+          {description}
+        </div>
+      )}
       {max > 0 && (
         <div className="mt-2 h-1.5 bg-ocean-900 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-ocean-400 transition-all"
-            style={{ width: `${percentage}%` }}
-          />
+          <div className="h-full bg-ocean-400 transition-all" style={{ width: `${percentage}%` }} />
         </div>
       )}
     </div>

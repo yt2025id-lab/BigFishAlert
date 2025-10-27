@@ -33,6 +33,22 @@ export function AITradingConsensus({ tokenSymbol, language, tokenMetrics }: AITr
   const { isDegen } = useTheme();
 
   /**
+   * Seeded random number generator for consistent but different results per token
+   * Uses tokenSymbol as seed so same token always gets same results
+   */
+  const seededRandom = (seed: string, index: number): number => {
+    let hash = 0;
+    const seedStr = seed + index.toString();
+    for (let i = 0; i < seedStr.length; i++) {
+      const char = seedStr.charCodeAt(i);
+      hash = (hash << 5) - hash + char;
+      hash = hash & hash; // Convert to 32-bit integer
+    }
+    const normalized = Math.abs(hash) / 2147483647; // Normalize to 0-1
+    return normalized;
+  };
+
+  /**
    * Generate dynamic AI model signals based on actual token metrics
    * Each AI model has different "personality" for decision-making
    */
@@ -45,6 +61,9 @@ export function AITradingConsensus({ tokenSymbol, language, tokenMetrics }: AITr
     // Risk levels: 0-30 = LOW, 30-60 = MEDIUM, 60-100 = HIGH
     const riskLevel = bigFishScore;
 
+    // Get token-specific random variations (consistent per token)
+    const getRandom = (modelIndex: number) => seededRandom(tokenSymbol, modelIndex);
+
     // Calculate model-specific signals and returns
     // Each model uses different strategy and risk tolerance
 
@@ -53,55 +72,55 @@ export function AITradingConsensus({ tokenSymbol, language, tokenMetrics }: AITr
       riskLevel < 40 && volume24h > 50000 ? 'BUY' : riskLevel > 65 ? 'SELL' : 'HOLD';
     const deepseekReturn =
       deepseekSignal === 'BUY'
-        ? 30 + (volume24h / 10000) * 5 + Math.random() * 15
+        ? 30 + (volume24h / 10000) * 5 + getRandom(1) * 15
         : deepseekSignal === 'SELL'
-        ? -20 - (riskLevel / 10) * 3 - Math.random() * 10
-        : 10 + Math.random() * 15;
+        ? -20 - (riskLevel / 10) * 3 - getRandom(1) * 10
+        : 10 + getRandom(1) * 15;
 
     // 2. GROK 4 - Contrarian (buys dips, sells peaks)
     const grokSignal = riskLevel > 70 ? 'SELL' : riskLevel < 35 ? 'BUY' : 'HOLD';
     const grokReturn =
       grokSignal === 'BUY'
-        ? 25 + (100 - holderConcentration) * 0.2 + Math.random() * 13
+        ? 25 + (100 - holderConcentration) * 0.2 + getRandom(2) * 13
         : grokSignal === 'SELL'
-        ? -15 - (riskLevel / 15) * 4 - Math.random() * 12
-        : 15 + Math.random() * 10;
+        ? -15 - (riskLevel / 15) * 4 - getRandom(2) * 12
+        : 15 + getRandom(2) * 10;
 
     // 3. CLAUDE - Conservative (avoids high risk, prefers liquidity)
     const claudeSignal =
       riskLevel < 30 && liquidity > 100000 ? 'BUY' : riskLevel > 50 ? 'SELL' : 'HOLD';
     const claudeReturn =
       claudeSignal === 'BUY'
-        ? 15 + (liquidity / 50000) * 2 + Math.random() * 10
+        ? 15 + (liquidity / 50000) * 2 + getRandom(3) * 10
         : claudeSignal === 'SELL'
-        ? -10 - (riskLevel / 20) * 2 - Math.random() * 8
-        : 20 + Math.random() * 8;
+        ? -10 - (riskLevel / 20) * 2 - getRandom(3) * 8
+        : 20 + getRandom(3) * 8;
 
     // 4. QWEN3 - Fundamental analyst (focuses on holder concentration)
     const qwen3Signal =
       holderConcentration < 50 && riskLevel < 45 ? 'BUY' : holderConcentration > 75 ? 'SELL' : 'HOLD';
     const qwen3Return =
       qwen3Signal === 'BUY'
-        ? 10 + (100 - holderConcentration) * 0.3 + Math.random() * 12
+        ? 10 + (100 - holderConcentration) * 0.3 + getRandom(4) * 12
         : qwen3Signal === 'SELL'
-        ? -18 - (holderConcentration / 10) * 3 - Math.random() * 10
-        : 5 + Math.random() * 12;
+        ? -18 - (holderConcentration / 10) * 3 - getRandom(4) * 10
+        : 5 + getRandom(4) * 12;
 
     // 5. GPT-5 - Pessimistic (bearish on most tokens)
     const gpt5Signal = riskLevel < 25 && liquidity > 200000 ? 'HOLD' : riskLevel > 40 ? 'SELL' : 'HOLD';
     const gpt5Return =
       gpt5Signal === 'HOLD'
-        ? -5 + Math.random() * 10
-        : -20 - (riskLevel / 8) * 4 - Math.random() * 15;
+        ? -5 + getRandom(5) * 10
+        : -20 - (riskLevel / 8) * 4 - getRandom(5) * 15;
 
     // 6. GEMINI - Risk-averse (sells at first sign of danger)
     const geminiSignal = riskLevel > 55 || holderConcentration > 70 ? 'SELL' : riskLevel < 30 ? 'BUY' : 'HOLD';
     const geminiReturn =
       geminiSignal === 'BUY'
-        ? 12 + (liquidity / 80000) * 2 + Math.random() * 8
+        ? 12 + (liquidity / 80000) * 2 + getRandom(6) * 8
         : geminiSignal === 'SELL'
-        ? -25 - (riskLevel / 10) * 3.5 - Math.random() * 12
-        : -2 + Math.random() * 8;
+        ? -25 - (riskLevel / 10) * 3.5 - getRandom(6) * 12
+        : -2 + getRandom(6) * 8;
 
     // Calculate total values based on returns
     const models: AIModel[] = [
