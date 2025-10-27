@@ -125,28 +125,47 @@ export function TokenScanner({ language, connected, onScanComplete }: TokenScann
           </CardTitle>
           <CardDescription className="text-ocean-200">
             {language === 'en'
-              ? 'Enter any Solana token address to check for whale activity'
-              : 'Masukkan alamat token Solana untuk memeriksa aktivitas paus'}
+              ? 'Connect your wallet to scan tokens and detect whale concentration'
+              : 'Hubungkan wallet Anda untuk scan token dan deteksi konsentrasi paus'}
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="flex gap-2">
-            <Input
-              placeholder={
-                language === 'en'
-                  ? 'Token address (e.g., So11111...)'
-                  : 'Alamat token (mis., So11111...)'
-              }
-              value={tokenAddress}
-              onChange={(e) => setTokenAddress(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && !loading && handleScan()}
-              className="bg-ocean-950/50 border-ocean-700 text-ocean-50 placeholder:text-ocean-400"
-              disabled={loading}
-            />
-            <Button
-              size="lg"
-              disabled={!tokenAddress.trim() || loading}
-              onClick={handleScan}
+          {!connected ? (
+            <div className="p-8 text-center rounded-lg bg-blue-500/10 border-2 border-blue-500/30">
+              <div className="text-4xl mb-4">🔒</div>
+              <div className="text-xl font-bold text-blue-100 mb-2">
+                {language === 'en' ? 'Wallet Required' : 'Wallet Diperlukan'}
+              </div>
+              <p className="text-sm text-blue-200 mb-6 max-w-md mx-auto">
+                {language === 'en'
+                  ? 'Connect your Solana wallet to start scanning tokens. This helps us track your whale hunting reputation and prevent spam.'
+                  : 'Hubungkan wallet Solana Anda untuk mulai scan token. Ini membantu kami melacak reputasi pemburu paus Anda dan mencegah spam.'}
+              </p>
+              <div className="text-xs text-blue-300">
+                {language === 'en'
+                  ? '💡 Click "Connect Wallet" button at the top right'
+                  : '💡 Klik tombol "Connect Wallet" di kanan atas'}
+              </div>
+            </div>
+          ) : (
+            <>
+              <div className="flex gap-2">
+                <Input
+                  placeholder={
+                    language === 'en'
+                      ? 'Token address (e.g., So11111...)'
+                      : 'Alamat token (mis., So11111...)'
+                  }
+                  value={tokenAddress}
+                  onChange={(e) => setTokenAddress(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && !loading && handleScan()}
+                  className="bg-ocean-950/50 border-ocean-700 text-ocean-50 placeholder:text-ocean-400"
+                  disabled={loading}
+                />
+                <Button
+                  size="lg"
+                  disabled={!tokenAddress.trim() || loading}
+                  onClick={handleScan}
               className={isDegen ? "fishing-rod px-8 py-6 text-lg font-black uppercase" : "fishing-rod"}
               style={isDegen ? {
                 background: 'linear-gradient(135deg, #00FF41 0%, #00D9FF 100%)',
@@ -169,23 +188,15 @@ export function TokenScanner({ language, connected, onScanComplete }: TokenScann
             </Button>
           </div>
 
-          {!connected && (
-            <p className="text-center text-sm text-ocean-300 mt-4">
-              {isDegen
-                ? (language === 'en' ? '⚡ You can scan without wallet ser!' : '⚡ Bisa scan tanpa wallet bro!')
-                : (language === 'en'
-                  ? '💡 Tip: You can scan tokens without connecting wallet'
-                  : '💡 Tips: Anda bisa scan token tanpa hubungkan wallet')}
-            </p>
-          )}
-
-          {error && (
-            <div className="mt-4 p-4 rounded-lg bg-red-500/10 border border-red-500/20">
-              <p className="text-red-400 text-sm flex items-center gap-2">
-                <AlertTriangle className="w-4 h-4" />
-                {error}
-              </p>
-            </div>
+            {error && (
+              <div className="mt-4 p-4 rounded-lg bg-red-500/10 border border-red-500/20">
+                <p className="text-red-400 text-sm flex items-center gap-2">
+                  <AlertTriangle className="w-4 h-4" />
+                  {error}
+                </p>
+              </div>
+            )}
+          </>
           )}
         </CardContent>
       </Card>
