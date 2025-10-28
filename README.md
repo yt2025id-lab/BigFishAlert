@@ -4,7 +4,7 @@
 
 [![Live Demo](https://img.shields.io/badge/Demo-Live-success?style=for-the-badge&logo=vercel)](https://bigfishalert.vercel.app)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/yt2025id-lab/BigFishAlert)
-[![Solana](https://img.shields.io/badge/Solana-Devnet-9945FF?style=for-the-badge&logo=solana)](https://solana.com)
+[![Solana](https://img.shields.io/badge/Solana-Mainnet-9945FF?style=for-the-badge&logo=solana)](https://solana.com)
 [![Next.js](https://img.shields.io/badge/Next.js-16.0-000000?style=for-the-badge&logo=next.js)](https://nextjs.org)
 
 **Built for:** [Solana Cypherpunk Hackathon 2025](https://www.colosseum.org) | **Track:** Consumer Apps (Raydium)
@@ -13,9 +13,9 @@
 
 ## 📺 Demo
 
-🎬 **[Watch Demo Video](https://youtube.com/...)** | 🌐 **[Try Live App](https://bigfishalert.vercel.app)**
+🎬 **Demo Video Coming Soon!** | 🌐 **[Try Live App](https://bigfishalert.vercel.app)**
 
-![BigFishAlert Screenshot](https://via.placeholder.com/800x400/1e40af/ffffff?text=BigFishAlert+Screenshot)
+> **Note:** Upload your demo video after recording and update this link!
 
 ---
 
@@ -183,8 +183,9 @@ NEXT_PUBLIC_HELIUS_API_KEY=your_key_here
 # Optional: OpenAI for AI predictions
 OPENAI_API_KEY=your_openai_key
 
-# Network (devnet/mainnet-beta)
-NEXT_PUBLIC_SOLANA_NETWORK=devnet
+# Network (mainnet-beta for production)
+NEXT_PUBLIC_SOLANA_NETWORK=mainnet-beta
+NEXT_PUBLIC_HELIUS_RPC_URL=https://api.mainnet-beta.solana.com
 ```
 
 **Note:** App works without API keys using public RPCs and fallback logic!
@@ -193,12 +194,12 @@ NEXT_PUBLIC_SOLANA_NETWORK=devnet
 
 ## 📖 How to Use
 
-### 1. Connect Wallet (Optional)
+### 1. Connect Wallet (Required)
 - Click "Connect Wallet" in header
 - Choose Phantom or Solflare
 - Approve connection
 
-**Note:** You can scan tokens WITHOUT connecting wallet!
+**Note:** Wallet connection required to unlock scanner and prevent spam.
 
 ### 2. Scan a Token
 1. Paste Solana token address (44 characters)
@@ -436,17 +437,16 @@ MIT License - see [LICENSE](./LICENSE) file for details.
 
 ## 📸 Screenshots
 
-### Professional Mode
-![Professional Mode](https://via.placeholder.com/800x500/1e40af/ffffff?text=Professional+Mode)
+> **Note:** Screenshots will be added after demo recording. Visit [live app](https://bigfishalert.vercel.app) to see all features in action!
 
-### Degen Mode
-![Degen Mode](https://via.placeholder.com/800x500/14b8a6/000000?text=Degen+Mode)
-
-### AI Whale Prediction
-![AI Prediction](https://via.placeholder.com/800x500/8b5cf6/ffffff?text=AI+Whale+Prediction)
-
-### AI Trading Consensus
-![Trading Consensus](https://via.placeholder.com/800x500/f59e0b/000000?text=AI+Trading+Consensus)
+### Key Features:
+- 🔍 **Token Scanner** - Paste any Solana token address
+- 🎯 **Risk Speedometer** - Visual 0-100 risk gauge
+- 🐋 **Whale Detection** - See top 10 holders with percentages
+- 🚨 **Risk Verdicts** - DANGER/CAUTION/SAFE warnings
+- 🎮 **Fisher Profile** - Gamification with rank progression
+- ⚡ **Degen Mode** - Neon theme toggle
+- 🌍 **Bilingual** - English/Indonesian support
 
 ---
 
